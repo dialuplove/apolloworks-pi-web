@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# VS Code / IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
