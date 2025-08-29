@@ -1,0 +1,7 @@
+prefix=/home/dialuplove/dev/apolloworks-pi-web/.venv
+includedir=${prefix}/include
+
+Name: RenderProto
+Description: Render extension headers
+Version: 0.11.1
+Cflags: -I${includedir}

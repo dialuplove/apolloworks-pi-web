@@ -1,0 +1,11 @@
+prefix=/home/dialuplove/dev/apolloworks-pi-web/.venv
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+toolexeclibdir=${libdir}
+includedir=/home/dialuplove/dev/apolloworks-pi-web/.venv/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.4.4
+Libs: -L${toolexeclibdir} -lffi
+Cflags: -I${includedir}
