@@ -2,7 +2,7 @@
 
 import time
 import pytest
-from token_validator import TokenValidator
+from token import TokenValidator
 
 
 class TestTokenValidator:

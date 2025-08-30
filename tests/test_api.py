@@ -9,10 +9,9 @@ import pytest
 
 # Set test environment variables before importing main
 os.environ['EDGE_SIGNING_SECRET'] = 'test-secret-key'
-os.environ['HLS_ROOT'] = tempfile.mkdtemp()
 
 from main import app
-from token_validator import TokenValidator
+from token import TokenValidator
 
 
 class TestAPI:
@@ -20,10 +19,18 @@ class TestAPI:
     
     def setup_method(self):
         """Set up test fixtures."""
+        # Create a fresh temporary directory for each test
+        self.temp_dir = tempfile.mkdtemp()
+        os.environ['HLS_ROOT'] = self.temp_dir
+        
+        # Reset the global validator to pick up the new HLS_ROOT
+        import deps
+        deps._validator = None
+        
         self.client = TestClient(app)
         self.secret = 'test-secret-key'
         self.validator = TokenValidator(self.secret)
-        self.hls_root = Path(os.environ['HLS_ROOT'])
+        self.hls_root = Path(self.temp_dir)
         
         # Create test HLS files
         self.create_test_files()
@@ -256,4 +263,4 @@ segment002.ts
     def teardown_method(self):
         """Clean up test files."""
         import shutil
-        shutil.rmtree(self.hls_root, ignore_errors=True)
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
