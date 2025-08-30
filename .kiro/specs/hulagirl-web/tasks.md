@@ -99,7 +99,8 @@
   - Verify all Content-Type and Cache-Control headers are set correctly
   - _Requirements: 7.5, 7.6, 7.7_
 
-- [x] 8. Implement containerization
+- [ ] 8. Implement containerization
+
 
 - [x] 8.1 Create ARM64 Dockerfile
 
