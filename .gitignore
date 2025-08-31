@@ -9,6 +9,7 @@ __pycache__/
 # VS Code / IDEs
 .vscode/
 .idea/
+*.code-workspace
 
 # Logs
 *.log
